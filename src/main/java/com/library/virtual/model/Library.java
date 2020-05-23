@@ -13,10 +13,34 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
-@Table(name = "Library")
+@Table(name = "library")
 public class Library implements java.io.Serializable{
 
     private static final long serialVersionUID = 1L;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Collection<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Collection<Book> books) {
+        this.books = books;
+    }
 
     @TableGenerator(name = "LIB_GEN", allocationSize = 1)
     @Id
