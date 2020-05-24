@@ -13,18 +13,28 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "books")
 public class Book implements Serializable {
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id")
     private Integer id;
 
+    String title;
+
+    String author;
+
 
     @Column(name = "library_id")
     private Integer library_id;
+
+
 
     public Integer getId() {
         return id;
@@ -40,5 +50,21 @@ public class Book implements Serializable {
 
     public void setLibrary_id(Integer library_id) {
         this.library_id = library_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
