@@ -7,6 +7,7 @@ import com.library.virtual.model.Book;
 import com.library.virtual.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,11 @@ public class BookResource {
     @GetMapping("/getAllBooks")
     public List<Book> findAllBooks(){
         return  bookService.getAllBooks();
+    }
+
+    @GetMapping("/getByLibraryId/{id}")
+    public  List<Book>  findBookByLibraryId(@PathVariable final int id){
+        return bookService.getBooksByLibraryId(id);
     }
 
     @PostMapping("/addBook")

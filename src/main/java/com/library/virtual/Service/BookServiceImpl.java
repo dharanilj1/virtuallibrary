@@ -18,6 +18,10 @@ public class BookServiceImpl  implements  BookService{
         return BookRepository.findAll();
     }
 
+    @Override public List<Book> getBooksByLibraryId(int id){
+        return BookRepository.getByLibrary_id(id);
+    }
+
     @Override public void addBook(Book book) {
         BookRepository.save(book);
     }
